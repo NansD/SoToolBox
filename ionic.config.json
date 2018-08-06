@@ -1,0 +1,7 @@
+{
+  "name": "SoToolbox",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
