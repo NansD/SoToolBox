@@ -1,0 +1,22 @@
+expandable {
+  ion-card-header{
+    padding-left: 3px !important;
+  }
+  ion-label {
+    width: 100%;
+  }
+  .expanded {
+    height: auto;
+    flex-direction: column;
+  }
+  .weather-icon {
+    height: 15px;
+    overflow-y: visible;
+    img {
+      margin-top: -15px;
+    }
+  }
+  .hidden {
+    display: none;
+  }
+}

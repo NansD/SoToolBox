@@ -1,17 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Météo</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding class="home">
+  <ion-grid *ngIf="weather">
+    <ion-row>
+        <ion-item *ngIf="weather">
+          <ion-label color="primary">Lieu</ion-label>
+          <ion-input [(ngModel)]="location.cityName" (ionChange)="this.getWeather()"></ion-input>
+        </ion-item>
+    </ion-row>
+    <ion-card class="item" *ngFor="let key of weatherListProps">
+      <ion-list>
+        <expandable [weatherItem]="weather.list[key][0]" [weatherList]="weather.list[key]"></expandable>
+      </ion-list>
+    </ion-card>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,29 @@
+<button ion-item (click)=expand($event)>
+  <ion-card-header class="expandable" *ngIf='this.weatherItem'>
+    <span>{{weatherItem.date.toLocaleDateString('FR-fr', {weekday: "long", day: "numeric", month: "numeric"})}}</span>
+    <span style="float: right"> {{weatherItem.main.temp}}&deg;C</span>
+    <ion-icon class="weather-icon">
+      <img src={{buildIconUrl(weatherItem.weather[0].icon)}}>
+    </ion-icon>
+  </ion-card-header>
+  <ion-card-content class="hidden" *ngFor="let weather of weatherList">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          {{weather.date.toLocaleTimeString('FR-fr', {hour:"numeric", minute:"numeric"})}}
+        </ion-col>
+        <ion-col>
+          {{weather.main.temp}}&deg;C
+        </ion-col>
+        <ion-col>
+          <ion-icon class="weather-icon">
+            <img src={{buildIconUrl(weather.weather[0].icon)}}>
+          </ion-icon>
+        </ion-col>
+        <ion-col>
+          {{weather.main.humidity}}%
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</button>
